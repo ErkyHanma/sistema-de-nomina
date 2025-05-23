@@ -29,8 +29,8 @@
         public override string ToString()
         {
             return $"Empleado por Hora\n{base.ToString()}\n" +
-                $"Sueldo por Hora: {sueldoPorHora}\n" +
-                $"Total horas trabajadas: {horasTrabajadas}\n";
+                $"Sueldo por Hora: ${sueldoPorHora:F2}\n" +
+                $"Total horas trabajadas: {horasTrabajadas}";
 
         }
     }

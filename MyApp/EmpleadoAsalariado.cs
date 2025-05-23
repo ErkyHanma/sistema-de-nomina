@@ -18,7 +18,7 @@
         public override string ToString()
         {
             return $"Empleado Asalariado\n{base.ToString()}\n" +
-                $"Salario semanal : {salarioSemanal}\n";
+                $"Salario semanal: ${salarioSemanal:F2}";
         }
 
     }

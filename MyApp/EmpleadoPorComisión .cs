@@ -20,8 +20,8 @@
 
         public override string ToString()
         {
-            return $"Empleado Asalariado + Comisiones\n{base.ToString()}\n" +
-                $"Total en Ventas Brutas: {ventasBrutas}\n" +
+            return $"Empleado por Comisiones\n{base.ToString()}\n" +
+                $"Total en Ventas Brutas: ${ventasBrutas:F2}\n" +
                 $"Tarifa por comision: {tarifaComision}";
 
         }

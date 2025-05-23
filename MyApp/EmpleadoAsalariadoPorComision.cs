@@ -23,9 +23,11 @@ namespace SistemaNomina.AMyApppp
 
         public override string ToString()
         {
-            return $"Empleado por Comisiones\n{base.ToString()}\n" +
-                $"Salario: {salarioBase}\n";
+            return $"Salario + {base.ToString()}\n" +
+                $"Salario: {salarioBase:F2}";
         }
+
+
 
     }
 }
