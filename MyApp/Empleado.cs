@@ -2,9 +2,9 @@
 {
     public abstract class Empleado
     {
-        private string primerNombre { get; set; }
-        private string apellidoPaterno { get; set; }
-        private string numeroSeguroSocial { get; set; }
+        protected string primerNombre { get; set; }
+        protected string apellidoPaterno { get; set; }
+        protected string numeroSeguroSocial { get; set; }
 
         public Empleado(string primerNombre, string apellidoPaterno, string numeroSeguroSocial)
         {
@@ -20,6 +20,8 @@
         }
 
         public abstract decimal CalcularPago();
+
+
 
 
     }

@@ -27,6 +27,12 @@ namespace SistemaNomina.AMyApppp
                 $"Salario: {salarioBase:F2}";
         }
 
+        public void ModificarDatos(string primerNombre, string apellidoPaterno, string numeroSeguroSocial, decimal ventasBrutas, decimal tarifaComision, decimal salarioBase)
+        {
+            base.ModificarDatos(primerNombre, apellidoPaterno, numeroSeguroSocial, ventasBrutas, tarifaComision);
+            this.salarioBase = salarioBase;
+        }
+
 
 
     }

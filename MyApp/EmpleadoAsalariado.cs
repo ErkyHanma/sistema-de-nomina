@@ -21,6 +21,14 @@
                 $"Salario semanal: ${salarioSemanal:F2}";
         }
 
+        public void ModificarDatos(string primerNombre, string apellidoPaterno, string numeroSeguroSocial, decimal salarioSemanal)
+        {
+            this.primerNombre = primerNombre;
+            this.apellidoPaterno = apellidoPaterno;
+            this.numeroSeguroSocial = numeroSeguroSocial;
+            this.salarioSemanal = salarioSemanal;
+        }
+
     }
 }
 

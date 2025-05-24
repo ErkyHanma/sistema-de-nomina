@@ -33,6 +33,15 @@
                 $"Total horas trabajadas: {horasTrabajadas}";
 
         }
+
+        public void ModificarDatos(string primerNombre, string apellidoPaterno, string numeroSeguroSocial, int horasTrabajadas, decimal sueldoPorHora)
+        {
+            this.primerNombre = primerNombre;
+            this.apellidoPaterno = apellidoPaterno;
+            this.numeroSeguroSocial = numeroSeguroSocial;
+            this.sueldoPorHora = sueldoPorHora;
+            this.horasTrabajadas = horasTrabajadas;
+        }
     }
 }
 
