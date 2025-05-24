@@ -2,25 +2,24 @@
 {
     public abstract class Empleado
     {
-        protected string primerNombre { get; set; }
-        protected string apellidoPaterno { get; set; }
-        protected string numeroSeguroSocial { get; set; }
+        public string PrimerNombre { get; protected set; }
+        public string ApellidoPaterno { get; protected set; }
+        public string NumeroSeguroSocial { get; protected set; }
 
         public Empleado(string primerNombre, string apellidoPaterno, string numeroSeguroSocial)
         {
-            this.primerNombre = primerNombre;
-            this.apellidoPaterno = apellidoPaterno;
-            this.numeroSeguroSocial = numeroSeguroSocial;
+            this.PrimerNombre = primerNombre;
+            this.ApellidoPaterno = apellidoPaterno;
+            this.NumeroSeguroSocial = numeroSeguroSocial;
         }
 
 
         public override string ToString()
         {
-            return $"Nombre: {primerNombre} {apellidoPaterno}\nSeguro Social: {numeroSeguroSocial}";
+            return $"Nombre: {PrimerNombre} {ApellidoPaterno}\nSeguro Social: {NumeroSeguroSocial}";
         }
 
         public abstract decimal CalcularPago();
-
 
 
 

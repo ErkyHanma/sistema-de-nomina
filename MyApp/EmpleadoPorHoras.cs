@@ -1,17 +1,44 @@
-﻿namespace SistemaNomina.MyApp
+﻿using System;
+
+namespace SistemaNomina.MyApp
 {
     public class EmpleadoPorHoras : Empleado
     {
-        private decimal sueldoPorHora { get; set; }
-        private int horasTrabajadas { get; set; }
+        private decimal sueldoPorHora;
+        private int horasTrabajadas;
 
+
+        public decimal SueldoPorHora
+        {
+            get { return sueldoPorHora; }
+            set
+            {
+                if (value >= 0)
+                    sueldoPorHora = value;
+                else
+                    throw new ArgumentException("El sueldo no puede ser negativo");
+            }
+        }
+
+        public int HorasTrabajadas
+        {
+            get { return horasTrabajadas; }
+            set
+            {
+                if (value >= 0)
+                    horasTrabajadas = value;
+                else
+                    throw new ArgumentException("La hora no puede ser negativa");
+            }
+        }
 
         public EmpleadoPorHoras(string primerNombre, string apellidoPaterno, string numeroSeguroSocial, int horasTrabajadas, decimal sueldoPorHora)
-            : base(primerNombre, apellidoPaterno, numeroSeguroSocial)
+         : base(primerNombre, apellidoPaterno, numeroSeguroSocial)
         {
-            this.sueldoPorHora = sueldoPorHora;
-            this.horasTrabajadas = horasTrabajadas;
+            SueldoPorHora = sueldoPorHora;
+            HorasTrabajadas = horasTrabajadas;
         }
+
 
 
         public override decimal CalcularPago()
@@ -36,11 +63,11 @@
 
         public void ModificarDatos(string primerNombre, string apellidoPaterno, string numeroSeguroSocial, int horasTrabajadas, decimal sueldoPorHora)
         {
-            this.primerNombre = primerNombre;
-            this.apellidoPaterno = apellidoPaterno;
-            this.numeroSeguroSocial = numeroSeguroSocial;
-            this.sueldoPorHora = sueldoPorHora;
-            this.horasTrabajadas = horasTrabajadas;
+            PrimerNombre = primerNombre;
+            ApellidoPaterno = apellidoPaterno;
+            NumeroSeguroSocial = numeroSeguroSocial;
+            SueldoPorHora = sueldoPorHora;
+            HorasTrabajadas = horasTrabajadas;
         }
     }
 }

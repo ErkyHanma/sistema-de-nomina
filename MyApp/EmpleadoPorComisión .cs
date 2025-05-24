@@ -1,17 +1,42 @@
-﻿namespace SistemaNomina.MyApp
+﻿using System;
+
+namespace SistemaNomina.MyApp
 {
     public class EmpleadoPorComisión : Empleado
     {
-        private decimal ventasBrutas { get; set; }
-        private decimal tarifaComision { get; set; }
+        private decimal ventasBrutas;
+        private decimal tarifaComision;
+
+        public decimal VentasBrutas
+        {
+            get { return ventasBrutas; }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("Las ventas brutas no pueden ser negativas.");
+                ventasBrutas = value;
+            }
+        }
+
+        public decimal TarifaComision
+        {
+            get { return tarifaComision; }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("La tarifa de comisión debe estar entre 0 y 1.");
+                tarifaComision = value;
+            }
+        }
 
         public EmpleadoPorComisión(string primerNombre, string apellidoPaterno, string numeroSeguroSocial, decimal ventasBrutas, decimal tarifaComision)
-            : base(primerNombre, apellidoPaterno, numeroSeguroSocial)
+           : base(primerNombre, apellidoPaterno, numeroSeguroSocial)
         {
-            this.ventasBrutas = ventasBrutas;
-            this.tarifaComision = tarifaComision;
+            VentasBrutas = ventasBrutas;
+            TarifaComision = tarifaComision;
 
         }
+
 
         public override decimal CalcularPago()
         {
@@ -28,12 +53,13 @@
 
         public void ModificarDatos(string primerNombre, string apellidoPaterno, string numeroSeguroSocial, decimal ventasBrutas, decimal tarifaComision)
         {
-            this.primerNombre = primerNombre;
-            this.apellidoPaterno = apellidoPaterno;
-            this.numeroSeguroSocial = numeroSeguroSocial;
-            this.ventasBrutas = ventasBrutas;
-            this.tarifaComision = tarifaComision;
+            PrimerNombre = primerNombre;
+            ApellidoPaterno = apellidoPaterno;
+            NumeroSeguroSocial = numeroSeguroSocial;
+            VentasBrutas = ventasBrutas;
+            TarifaComision = tarifaComision;
         }
+
 
     }
 }

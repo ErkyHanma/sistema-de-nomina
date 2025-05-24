@@ -11,7 +11,7 @@ namespace Sistema_de_nonima
         {
 
             List<Empleado> empleados = new List<Empleado>();
-            empleados.Add(new EmpleadoAsalariado("Julio1", "Rodriguez", "0-1234-562", 4500));
+            empleados.Add(new EmpleadoAsalariado("Julio", "Rodriguez", "0-1234-562", 4500));
             empleados.Add(new EmpleadoPorHoras("Albert", "Pujols", "0-1234-565", 35, 200));
             empleados.Add(new EmpleadoPorComisión("Manny", "Ramirez", "0-1234-512", 20000, (decimal)0.10));
             empleados.Add(new EmpleadoAsalariadoPorComision("Placido", "Polanco", "0-1234-987", 3000, (decimal)0.10, 5000));
@@ -27,8 +27,8 @@ namespace Sistema_de_nonima
                 Console.WriteLine("1.Generar Nomina:");
                 Console.WriteLine("2.Añadir Empleado:");
                 Console.WriteLine("3.Modificar Empleado");
-                Console.WriteLine("4.Salir");
-                Console.WriteLine();
+                Console.WriteLine("4.Salir\n");
+
 
                 int result;
                 bool answer = int.TryParse(Console.ReadLine(), out result);
@@ -113,68 +113,116 @@ namespace Sistema_de_nonima
                 switch (result)
                 {
                     case 1:
-                        Console.Write("Nombre: ");
-                        primerNombre = Console.ReadLine();
-                        Console.Write("Apellido: ");
-                        apellidoPaterno = Console.ReadLine();
-                        Console.Write("Seguro Social: ");
-                        numeroSeguroSocial = Console.ReadLine();
-                        Console.Write("Salario: ");
-                        salario = int.Parse(Console.ReadLine());
-                        empleados.Add(new EmpleadoAsalariado(primerNombre, apellidoPaterno, numeroSeguroSocial, salario));
-                        MostrarEmpleadoCreado(primerNombre, apellidoPaterno);
+                        try
+                        {
+                            Console.Write("Nombre: ");
+                            primerNombre = Console.ReadLine();
+                            Console.Write("Apellido: ");
+                            apellidoPaterno = Console.ReadLine();
+                            Console.Write("Seguro Social: ");
+                            numeroSeguroSocial = Console.ReadLine();
+                            Console.Write("Salario: ");
+                            salario = decimal.Parse(Console.ReadLine());
+                            empleados.Add(new EmpleadoAsalariado(primerNombre, apellidoPaterno, numeroSeguroSocial, salario));
+                            MostrarEmpleadoCreado(primerNombre, apellidoPaterno);
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine("Error: " + ex.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error inesperado: " + ex.Message);
+                        }
                         break;
                     case 2:
-                        Console.Write("Nombre: ");
-                        primerNombre = Console.ReadLine();
-                        Console.Write("Apellido: ");
-                        apellidoPaterno = Console.ReadLine();
-                        Console.Write("Seguro Social: ");
-                        numeroSeguroSocial = Console.ReadLine();
-                        Console.Write("Sueldo por hora: ");
-                        sueldoPorHora = int.Parse(Console.ReadLine());
-                        Console.Write("Horas Trabajadas: ");
-                        horasTrabajadas = int.Parse(Console.ReadLine());
-                        empleados.Add(new EmpleadoPorHoras(primerNombre, apellidoPaterno, numeroSeguroSocial, horasTrabajadas, sueldoPorHora));
-                        Console.WriteLine("Empleado Agregado con exito");
-                        MostrarEmpleadoCreado(primerNombre, apellidoPaterno);
+                        try
+                        {
+                            Console.Write("Nombre: ");
+                            primerNombre = Console.ReadLine();
+                            Console.Write("Apellido: ");
+                            apellidoPaterno = Console.ReadLine();
+                            Console.Write("Seguro Social: ");
+                            numeroSeguroSocial = Console.ReadLine();
+                            Console.Write("Sueldo por hora: ");
+                            sueldoPorHora = decimal.Parse(Console.ReadLine());
+                            Console.Write("Horas Trabajadas: ");
+                            horasTrabajadas = int.Parse(Console.ReadLine());
+                            empleados.Add(new EmpleadoPorHoras(primerNombre, apellidoPaterno, numeroSeguroSocial, horasTrabajadas, sueldoPorHora));
+                            Console.WriteLine("Empleado Agregado con exito");
+                            MostrarEmpleadoCreado(primerNombre, apellidoPaterno);
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine("Error: " + ex.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error inesperado: " + ex.Message);
+                        }
                         break;
                     case 3:
-                        Console.Write("Nombre: ");
-                        primerNombre = Console.ReadLine();
-                        Console.Write("Apellido: ");
-                        apellidoPaterno = Console.ReadLine();
-                        Console.Write("Seguro Social: ");
-                        numeroSeguroSocial = Console.ReadLine();
-                        Console.Write("Ventas bruta: ");
-                        ventasBrutas = int.Parse(Console.ReadLine());
-                        Console.Write("Tarifa de Comision: ");
-                        tarifaComision = int.Parse(Console.ReadLine());
-                        empleados.Add(new EmpleadoPorComisión(primerNombre, apellidoPaterno, numeroSeguroSocial, ventasBrutas, tarifaComision));
-                        Console.WriteLine("Empleado Agregado con exito");
-                        MostrarEmpleadoCreado(primerNombre, apellidoPaterno);
+                        try
+                        {
+                            Console.Write("Nombre: ");
+                            primerNombre = Console.ReadLine();
+                            Console.Write("Apellido: ");
+                            apellidoPaterno = Console.ReadLine();
+                            Console.Write("Seguro Social: ");
+                            numeroSeguroSocial = Console.ReadLine();
+                            Console.Write("Ventas bruta: ");
+                            ventasBrutas = decimal.Parse(Console.ReadLine());
+                            Console.Write("Tarifa de Comision: ");
+                            tarifaComision = decimal.Parse(Console.ReadLine());
+                            empleados.Add(new EmpleadoPorComisión(primerNombre, apellidoPaterno, numeroSeguroSocial, ventasBrutas, tarifaComision));
+                            Console.WriteLine("Empleado Agregado con exito");
+                            MostrarEmpleadoCreado(primerNombre, apellidoPaterno);
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine("Error: " + ex.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error inesperado: " + ex.Message);
+                        }
                         break;
                     case 4:
-                        Console.Write("Nombre: ");
-                        primerNombre = Console.ReadLine();
-                        Console.Write("Apellido: ");
-                        apellidoPaterno = Console.ReadLine();
-                        Console.Write("Seguro Social: ");
-                        numeroSeguroSocial = Console.ReadLine();
-                        Console.Write("Salario: ");
-                        salario = int.Parse(Console.ReadLine());
-                        Console.Write("Ventas bruta: ");
-                        ventasBrutas = int.Parse(Console.ReadLine());
-                        Console.Write("Tarifa de Comision: ");
-                        tarifaComision = int.Parse(Console.ReadLine());
-                        empleados.Add(new EmpleadoAsalariadoPorComision(primerNombre, apellidoPaterno, numeroSeguroSocial, ventasBrutas, tarifaComision, salario));
-                        Console.WriteLine("Empleado Agregado con exito");
-                        MostrarEmpleadoCreado(primerNombre, apellidoPaterno);
+                        try
+                        {
+                            Console.Write("Nombre: ");
+                            primerNombre = Console.ReadLine();
+                            Console.Write("Apellido: ");
+                            apellidoPaterno = Console.ReadLine();
+                            Console.Write("Seguro Social: ");
+                            numeroSeguroSocial = Console.ReadLine();
+                            Console.Write("Salario: ");
+                            salario = decimal.Parse(Console.ReadLine());
+                            Console.Write("Ventas bruta: ");
+                            ventasBrutas = decimal.Parse(Console.ReadLine());
+                            Console.Write("Tarifa de Comision: ");
+                            tarifaComision = decimal.Parse(Console.ReadLine());
+                            empleados.Add(new EmpleadoAsalariadoPorComision(primerNombre, apellidoPaterno, numeroSeguroSocial, ventasBrutas, tarifaComision, salario));
+                            Console.WriteLine("Empleado Agregado con exito");
+                            MostrarEmpleadoCreado(primerNombre, apellidoPaterno);
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine("Error: " + ex.Message);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error inesperado: " + ex.Message);
+                        }
                         break;
                     default:
                         Console.WriteLine("Opcion no valida");
                         break;
                 }
+            }
+            else
+            {
+                Console.WriteLine("Error: Opcion no valida");
             }
         }
 
@@ -187,7 +235,8 @@ namespace Sistema_de_nonima
                 Console.WriteLine($"{i + 1}.{empleados[i]}\n");
             }
 
-            int answer = int.Parse(Console.ReadLine());
+
+            bool answer = int.TryParse(Console.ReadLine(), out int result);
             Console.Clear();
 
             string primerNombre;
@@ -199,78 +248,132 @@ namespace Sistema_de_nonima
             decimal ventasBrutas;
             decimal tarifaComision;
 
-            if (empleados[answer - 1] is EmpleadoAsalariado empleadoAsalariado)
+            if (answer)
             {
-                Console.Write("Nombre: ");
-                primerNombre = Console.ReadLine();
-                Console.Write("Apellido: ");
-                apellidoPaterno = Console.ReadLine();
-                Console.Write("Seguro Social: ");
-                numeroSeguroSocial = Console.ReadLine();
-                Console.Write("Salario: ");
-                salario = int.Parse(Console.ReadLine());
-                empleadoAsalariado.ModificarDatos(primerNombre, apellidoPaterno, numeroSeguroSocial, salario);
-                MostrarEmpleadoModificado(primerNombre, apellidoPaterno);
+                if (result > 0 && result < empleados.Count)
+                {
+                    switch (empleados[result - 1])
+                    {
+                        case EmpleadoAsalariado empleadoAsalariado:
+                            try
+                            {
+                                Console.Write("Nombre: ");
+                                primerNombre = Console.ReadLine();
+                                Console.Write("Apellido: ");
+                                apellidoPaterno = Console.ReadLine();
+                                Console.Write("Seguro Social: ");
+                                numeroSeguroSocial = Console.ReadLine();
+                                Console.Write("Salario: ");
+                                salario = decimal.Parse(Console.ReadLine());
+                                empleadoAsalariado.ModificarDatos(primerNombre, apellidoPaterno, numeroSeguroSocial, salario);
+                                MostrarEmpleadoModificado(primerNombre, apellidoPaterno);
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                Console.WriteLine("Error: " + ex.Message);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("Error inesperado: " + ex.Message);
+                            }
+                            break;
+
+                        case EmpleadoAsalariadoPorComision empleadoAsalariadoPorComision:
+                            try
+                            {
+                                Console.Write("Nombre: ");
+                                primerNombre = Console.ReadLine();
+                                Console.Write("Apellido: ");
+                                apellidoPaterno = Console.ReadLine();
+                                Console.Write("Seguro Social: ");
+                                numeroSeguroSocial = Console.ReadLine();
+                                Console.Write("Salario: ");
+                                salario = decimal.Parse(Console.ReadLine());
+                                Console.Write("Ventas bruta: ");
+                                ventasBrutas = decimal.Parse(Console.ReadLine());
+                                Console.Write("Tarifa de Comision: ");
+                                tarifaComision = decimal.Parse(Console.ReadLine());
+                                empleadoAsalariadoPorComision.ModificarDatos(primerNombre, apellidoPaterno, numeroSeguroSocial, ventasBrutas, tarifaComision, salario);
+                                MostrarEmpleadoModificado(primerNombre, apellidoPaterno);
+
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                Console.WriteLine("Error: " + ex.Message);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("Error inesperado: " + ex.Message);
+                            }
+                            break;
+
+                        case EmpleadoPorComisión empleadoPorComision:
+                            try
+                            {
+                                Console.Write("Nombre: ");
+                                primerNombre = Console.ReadLine();
+                                Console.Write("Apellido: ");
+                                apellidoPaterno = Console.ReadLine();
+                                Console.Write("Seguro Social: ");
+                                numeroSeguroSocial = Console.ReadLine();
+                                Console.Write("Ventas bruta: ");
+                                ventasBrutas = decimal.Parse(Console.ReadLine());
+                                Console.Write("Tarifa de Comision: ");
+                                tarifaComision = decimal.Parse(Console.ReadLine());
+                                empleadoPorComision.ModificarDatos(primerNombre, apellidoPaterno, numeroSeguroSocial, ventasBrutas, tarifaComision);
+                                MostrarEmpleadoModificado(primerNombre, apellidoPaterno);
+
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                Console.WriteLine("Error: " + ex.Message);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("Error inesperado: " + ex.Message);
+                            }
+                            break;
+
+                        case EmpleadoPorHoras empleadoPorHoras:
+                            try
+                            {
+                                Console.Write("Nombre: ");
+                                primerNombre = Console.ReadLine();
+                                Console.Write("Apellido: ");
+                                apellidoPaterno = Console.ReadLine();
+                                Console.Write("Seguro Social: ");
+                                numeroSeguroSocial = Console.ReadLine();
+                                Console.Write("Sueldo por hora: ");
+                                sueldoPorHora = decimal.Parse(Console.ReadLine());
+                                Console.Write("Horas Trabajadas: ");
+                                horasTrabajadas = int.Parse(Console.ReadLine());
+                                empleadoPorHoras.ModificarDatos(primerNombre, apellidoPaterno, numeroSeguroSocial, horasTrabajadas, sueldoPorHora);
+                                MostrarEmpleadoModificado(primerNombre, apellidoPaterno);
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                Console.WriteLine("Error: " + ex.Message);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("Error inesperado: " + ex.Message);
+                            }
+                            break;
+                        default:
+                            Console.WriteLine("Opcion no valida");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: Numero de empleado no disponible");
+                }
 
             }
-
-
-            if (empleados[answer - 1] is EmpleadoPorHoras empleadoPorHoras)
+            else
             {
-                Console.Write("Nombre: ");
-                primerNombre = Console.ReadLine();
-                Console.Write("Apellido: ");
-                apellidoPaterno = Console.ReadLine();
-                Console.Write("Seguro Social: ");
-                numeroSeguroSocial = Console.ReadLine();
-                Console.Write("Sueldo por hora: ");
-                sueldoPorHora = int.Parse(Console.ReadLine());
-                Console.Write("Horas Trabajadas: ");
-                horasTrabajadas = int.Parse(Console.ReadLine());
-                empleadoPorHoras.ModificarDatos(primerNombre, apellidoPaterno, numeroSeguroSocial, horasTrabajadas, sueldoPorHora);
-                MostrarEmpleadoModificado(primerNombre, apellidoPaterno);
-
+                Console.WriteLine("Error: Opcion no valida");
             }
-
-
-            if (empleados[answer - 1] is EmpleadoPorComisión empleadoPorComision)
-            {
-                Console.Write("Nombre: ");
-                primerNombre = Console.ReadLine();
-                Console.Write("Apellido: ");
-                apellidoPaterno = Console.ReadLine();
-                Console.Write("Seguro Social: ");
-                numeroSeguroSocial = Console.ReadLine();
-                Console.Write("Ventas bruta: ");
-                ventasBrutas = int.Parse(Console.ReadLine());
-                Console.Write("Tarifa de Comision: ");
-                tarifaComision = int.Parse(Console.ReadLine());
-                empleadoPorComision.ModificarDatos(primerNombre, apellidoPaterno, numeroSeguroSocial, ventasBrutas, tarifaComision);
-                MostrarEmpleadoModificado(primerNombre, apellidoPaterno);
-
-            }
-
-
-            if (empleados[answer - 1] is EmpleadoAsalariadoPorComision empleadoAsalariadoPorComision)
-            {
-                Console.Write("Nombre: ");
-                primerNombre = Console.ReadLine();
-                Console.Write("Apellido: ");
-                apellidoPaterno = Console.ReadLine();
-                Console.Write("Seguro Social: ");
-                numeroSeguroSocial = Console.ReadLine();
-                Console.Write("Salario: ");
-                salario = int.Parse(Console.ReadLine());
-                Console.Write("Ventas bruta: ");
-                ventasBrutas = int.Parse(Console.ReadLine());
-                Console.Write("Tarifa de Comision: ");
-                tarifaComision = int.Parse(Console.ReadLine());
-                empleadoAsalariadoPorComision.ModificarDatos(primerNombre, apellidoPaterno, numeroSeguroSocial, ventasBrutas, tarifaComision, salario);
-                MostrarEmpleadoModificado(primerNombre, apellidoPaterno);
-
-            }
-
         }
-
     }
 }
