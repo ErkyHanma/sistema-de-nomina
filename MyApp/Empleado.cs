@@ -7,6 +7,7 @@ namespace SistemaNomina.MyApp
         private string primerNombre;
         private string apellidoPaterno;
         private string numeroSeguroSocial;
+        
         public string PrimerNombre
         {
             get => primerNombre;
