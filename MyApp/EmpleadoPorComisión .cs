@@ -24,7 +24,7 @@ namespace SistemaNomina.MyApp
             set
             {
                 if (value < 0)
-                    throw new ArgumentException("La tarifa de comisión debe estar entre 0 y 1.");
+                    throw new ArgumentException("La tarifa de comisión debe ser mayor a cero.");
                 tarifaComision = value;
             }
         }
